@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  rabbitmq3:
+    image: rabbitmq:3-management
+    restart: always
+    
+    environment:
+      RABBITMQ_DEFAULT_USER: "johnny"
+      RABBITMQ_DEFAULT_PASS: "1234"
+    volumes:
+      - .rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+  redis:
+    image: redis
+    volumes:
+      - .redis-data:/data
+    ports:
+      - 6379:6379
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+    - REDIS_HOSTS=local:redis:6379
+    ports:
+    - "8081:8081"
+
+
