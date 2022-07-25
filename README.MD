@@ -1,7 +1,7 @@
-# you must have python3 installed on your machine 
+# you must have python3, docker, docker compose installed on your machine 
 steps:
 - dowload project 
-- open rabbit-redis-timezones folder
+- open project folder
 - inside the folder:
   - run commands on terminal:
     -  pip/pip3 install -r requirements.txt
